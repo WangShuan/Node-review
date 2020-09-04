@@ -6,11 +6,11 @@
 
 ### 1-1. Node 第一次使用講解（在 code-module/01.js ）
 
-創建一個 JS 檔案, 創建一個變量 foo 為文字, console.log(foo)
+創建一個 JS 檔案, 創建一個變量 foo 為文字, `console.log(foo)`
 
-開啟終端機到此 JS 檔案的目錄, 然後使用 node 空格 + 此檔案名
+開啟終端機到此 JS 檔案的目錄, 然後使用 `node 空格 + 此檔案名`
 
-** 這裏要注意檔案名稱不可為 node.js 否則無法執行 **
+** 這裏要注意檔案名稱不可為 `node.js` 否則無法執行 **
 
 代碼如下：
 
@@ -33,15 +33,15 @@ node a.js
 
 ### 1-2. Node 中專門用來測試的方法
 
-在瀏覽器中 可使用右鍵 檢查 裡面的 Consloe 測試代碼
+在瀏覽器中 可使用右鍵 檢查 裡面的 `Consloe` 測試代碼
 
-在 Node 中也有類似於 Consloe 的測試環境
+在 Node 中也有類似於 `Consloe` 的測試環境
 
-使用方式為 打開任意目錄的終端機 輸入 node 按下 enter 鍵
+使用方式為 打開任意目錄的終端機 輸入 `node` 按下 `enter` 鍵
 
-即可在終端機中 不需 require 的任意測試各種核心模塊
+即可在終端機中 不需 `require` 的任意測試各種核心模塊
 
-若要離開測試環境則連續按下兩次 control＋C 即可
+若要離開測試環境則連續按下兩次 `control＋C` 即可
 
 
 
@@ -51,13 +51,13 @@ node a.js
 
 ### 2-1.讀取文件（在 code-module/02.js ）
 
-創建一個 JS 檔案, 使用 require 加載一個文件系統模塊 "fs",
+創建一個 JS 檔案, 使用 `require` 加載一個文件系統模塊 `fs`,
 
-使用 fs.readfile 方法, 參數1為讀取的檔案路徑, 參數2為回調函數,
+使用 `fs.readfile` 方法, 參數1為讀取的檔案路徑, 參數2為回調函數,
 
-回調函數中的參數1為 err 錯誤對象,參數2為 data 數據
+回調函數中的參數1為 `err` 錯誤對象,參數2為 `data` 數據
 
-** data 要 toString 是因為 node 讀取出來的是二進制文字 **
+** 這裡的 `data` 要 `toString` 是因為 node 讀取出來的是二進制文字 **
 
 代碼如下：
 
@@ -73,13 +73,13 @@ fs.readFile('./test.txt',function(err,data){
 
 ### 2-2.創建文件（在 code-module/03.js ）
 
-創建一個 JS 檔案, 使用 require 加載一個文件系統模塊 "fs",
+創建一個 JS 檔案, 使用 `require` 加載一個文件系統模塊 `fs`,
 
-使用 fs.writefile 方法, 參數1為讀取的檔案路徑, 參數2為寫入文件內容,
+使用 `fs.writefile` 方法, 參數1為讀取的檔案路徑, 參數2為寫入文件內容 參數3為回調函數, 
 
-參數3為回調函數, 此回調函數中的參數只需一個, 為 err 錯誤對象
+此回調函數中的參數只需一個, 為 `err` 錯誤對象
 
-假設沒有 err 對象,則 console.log 回報一句成功即可
+假設沒有 `err` 對象,則 `console.log` 回報一句成功即可
 
 代碼如下：
 
@@ -96,9 +96,11 @@ fs.writeFile('./test.txt', "範例文字", function (err) {
 
 ### 2-3.關於 errow
 
-因為 node 本身不會報錯, 所以需要有 errow 對象
+因為 node 本身不會報錯, 所以需要有 `errow` 對象
 
-當 errow 為空時表示成功, 假設失敗 data 則會顯示為 undefined , errow 為一個數組對象
+當 `errow` 為空時表示成功, 假設失敗 `console.log(data)` 則會顯示為 `undefined` , 
+
+此 `errow` 為一個數組對象
 
 測試代碼如下：
 
@@ -122,19 +124,20 @@ fs.readFile('./test.txt',function(err,data){
 
 服務器的執行順序為： a.發送請求➡️ b.接收請求➡️ c.處理請求➡️ d.回饋響應
 
-若要關閉 node 服務器 在終端機按下 control+C 即可
+若要關閉 node 服務器 在終端機按下 `control+C` 即可
+
 
 ### 3-1.接收請求（在 code-module/04.js ）
 
-創建一個 JS 檔案, 使用 require 加載一個核心模塊 "http",
+創建一個 JS 檔案, 使用 `require` 加載一個核心模塊 `http`,
 
-然後創建 http 服務器, 方法為 定義一個變量 server 為 http.createServer()
+然後創建 http 服務器, 方法為 定義一個變量 `server` 為 `http.createServer()`
 
-使用 server.on() 方法註冊請求事件, 參數1為 reuqest , 參數2為回調函數
+使用 `server.on()` 方法註冊請求事件, 參數1為 `reuqest` , 參數2為回調函數
 
-** 補充說明：server.on() 是執行當客戶端對我們發送請求時 我們觸發請求事件接收請求的過程 **
+** 補充說明：`server.on()` 是執行當客戶端對我們發送請求時 我們觸發請求事件接收請求的過程 **
 
-最後使用 server.listen() 方法創建端口號, 參數1為端口號號碼, 參數2為回調函數
+最後使用 `server.listen()` 方法創建端口號, 參數1為端口號號碼, 參數2為回調函數
 
 * 這裡的端口號號碼其實沒有特殊意義 僅是用來賦予我們自己創建的服務器一個聯網的號碼 
 
@@ -172,13 +175,13 @@ server.listen(3000,function(){
 
 ### 3-2.發送響應（在 code-module/05.js ）
 
-接收請求與發送響應都在 server.on() 事件中的回調函數裡執行,
+接收請求與發送響應都在 `server.on()` 事件中的回調函數裡執行,
 
-在此事件的回調函數中, 參數1為 request, 參數2為 response,
+在此事件的回調函數中, 參數1為 `request`, 參數2為 `response`,
 
-在 response 中 有兩種常用方法為 write 和 end,
+在 `response` 中 有兩種常用方法為 `write` 和 `end`,
 
-write 即為在響應中寫入數據, end 則是結束響應,
+`write` 即為在響應中寫入數據, `end` 則是結束響應,
 
 若只寫入數據沒有結束響應 則請求會一直處於等待中（網站一直轉圈圈不動）
 
@@ -207,13 +210,13 @@ server.listen(3000,function(){
 
 在剛才上面兩個服務器的案例中 不管你的請求地址是什麼 只要發送請求他就給你響應
 
-若是要控制每個請求地址對應不同的請求響應則需要利用 request.url 獲取端口號後面的路徑名稱
+若是要控制每個請求地址對應不同的請求響應則需要利用 `request.url` 獲取端口號後面的路徑名稱
 
-網址默認的 url 地址結尾為 ‘/’ , 即當你在請求地址中輸入『 http://127.0.0.1:3000 』
+網址默認的 `url` 地址結尾為 `/` , 即當你在請求地址中輸入 `http://127.0.0.1:3000`
 
-其實是他會默認加上 ‘/’ ,假設你將那段網址複製貼上就會發現它其實是『 http://127.0.0.1:3000/ 』
+其實是他會默認加上 `/` ,假設你將那段網址複製貼上就會發現它其實是 `http://127.0.0.1:3000/`
 
-舉例我們請求 / 時顯示 首頁, 請求 /login 時顯示 登入, 請求其他時顯示 404 errow
+舉例我們請求 `/` 時顯示 首頁, 請求 `/login` 時顯示 登入, 請求其他時顯示 `404 errow`
 
 代碼如下：
 
@@ -237,25 +240,25 @@ server.on('request', function (request, reponse) {
 
 ### 3-4.關於傳送響應的一些補充（在 code-module/07.js 和 code-module/08.js）
 
-reponse.write 可以多次使用, 默認會直接將所有響應內容連在一起 但結束響應只能一次 因為一個請求對應一個響應
+`reponse.write` 可以多次使用, 默認會直接將所有響應內容連在一起 但結束響應只能一次 因為一個請求對應一個響應
 
-假設你的代碼為 reponse.write('123') reponse.write(' 456')則顯示 123 456
+假設你的代碼為 `reponse.write('123')` `reponse.write(' 456')`則顯示 `123 456`
 
-若覺得代碼太冗長 可在結束響應時同時發送數據內容, 方法為 reponse.end('123 456')
+若覺得代碼太冗長 可在結束響應時同時發送數據內容, 方法為 `reponse.end('123 456')`
 
-* reponse.write 無法直接傳送中文字到網頁頁面, 會變成亂碼
+* `reponse.write` 無法直接傳送中文字到網頁頁面, 會變成亂碼
 
-* 因為瀏覽器沒有收到你響應內容的類型設定 默認會依照你的電腦操作系統編碼 中文操作系統編碼是 gbk
+* 因為瀏覽器沒有收到你響應內容的類型設定 默認會依照你的電腦操作系統編碼 中文操作系統編碼是 `gbk`
 
-* 但世界通用編碼是 utf8 所以我們需要自行設定響應頭為 utf8 編碼 才不會解析錯誤
+* 但世界通用編碼是 `utf8` 所以我們需要自行設定響應頭為 `utf8` 編碼 才不會解析錯誤
 
-  * 此時可設定響應頭 response.setHeader() 參數1為內容類型 參數2為普通文本類型編碼utf8
+  * 此時可設定響應頭 `response.setHeader()` 參數1為內容類型 參數2為普通文本類型編碼 `utf8`
 
-    * 假設你的響應體是html類型且含有中文字則需改成 text/html; charset=utf-8
+    * 假設你的響應體是 `html` 類型且含有中文字則需改成 `text/html; charset=utf-8`
 
-  * response.write 支持二進制數據 所以可以直接使用 fs 讀取文件傳送響應而不用再 data.toString
+  * `response.write` 支持二進制數據 所以可以直接使用 `fs` 讀取文件傳送響應而不用再 `data.toString`
 
-    * 假設你傳送的響應為整個網頁代碼 則因網頁中含有 meta 標籤 已設定編碼為 utf8 所以也不需另外設定響應頭
+    * 假設你傳送的響應為整個網頁代碼 則因網頁中含有 `meta` 標籤 已設定編碼為 `utf8` 所以也不需另外設定響應頭
 
 代碼如下：
 
@@ -268,21 +271,22 @@ server.on('request',function(req,res){
 
 ```
 
-* 響應內容只能是二進制數據或字符串 如非這兩種數據則要記得使用 toString() 方法轉為字符串
-  * 如若你要傳送的數據是數組 則可使用 JSON.stringify(數組) 把數組對象轉為字符串
+* 響應內容只能是二進制數據或字符串 如非這兩種數據則要記得使用 `toString()` 方法轉為字符串
+
+* 如若你要傳送的數據是數組 則可使用 `JSON.stringify(數組)` 把數組對象轉為字符串
 
 
 ### 3-5. 試做用 html 服務器開啟瀏覽資料夾（在 readdir-replace 目錄）
 
-創建一個 readdir 資料夾 用 node 中的 http 服務器試做 『 瀏覽器網頁開啟資料夾 』
+創建一個 `readdir` 資料夾 用 `node` 中的 `http` 服務器試做 『 瀏覽器網頁開啟資料夾 』
 
-結合 fs 核心模塊中的 readdir 方法 使用 replace 方法 ＋ forEach 方法 渲染頁面
+結合 `fs` 核心模塊中的 `readdir` 方法 使用 `replace` 方法 ＋ `forEach` 方法 渲染頁面
 
-* readdir 跟 readfile 使用方式相同 差別在於一個是讀取目錄一個是讀取文件
+* `readdir` 跟 `readfile` 使用方式相同 差別在於一個是讀取目錄一個是讀取文件
 
-* replace 方法用來替換字符串 參數1是要刪除的字 參數2是補上的內容
+* `replace` 方法用來替換字符串 參數1是要刪除的字 參數2是補上的內容
 
-* forEach 方法是 ES6 中的 且不支援低版本瀏覽器(如IE8)
+* `forEach` 方法是 `ES6` 中的 且不支援低版本瀏覽器(如IE8)
 
   * 補充 ES6 中的 ` 符號使用方式：
   
@@ -316,29 +320,29 @@ fs.readdir(dirUrl, function (err, files) {
 
 ## 4. node 中的三種模塊
 
-node 中的 js 支持 EcmaScript6 ,而 node 跟 js 唯一的差別只是 node 中沒有 DOM 和 BOM
+node 中的 js 支持 `EcmaScript6` ,而 node 跟 js 唯一的差別只是 node 中沒有 DOM 和 BOM
 
 
 ### 4-1.核心模塊
 
 在 node 中它提供了許多很厲害的 API 這些 API 都被包裝成特定名稱的核心模塊
 
-常用的比如：文件操作有 fs 核心模塊, 服務器則有 http 核心模塊 ....等等
+常用的比如：文件操作有 `fs` 核心模塊, 服務器則有 `http` 核心模塊 ....等等
 
-要使用這些核心模塊只需要通過 require 引用至你的 js 文件中即可
+要使用這些核心模塊只需要通過 `require` 引用至你的 js 文件中即可
 
-因為這些核心模塊都被包含在 node 這個應用程式裡面了
+因為這些核心模塊都被包含在 `node` 這個應用程式裡面了
 
 
 ### 4-2.模塊系統
 
-在 node 中一次只能於終端機開啟一個 node js 文件
+在 node 中一次只能於終端機開啟一個 `js` 文件
 
-當你要一次執行多個 js 文件時 則一直在 js 文件中 require 加載其他 js 文件
+當你要一次執行多個 `js` 文件時 則一直在 `js` 文件中 `require` 加載其他 `js` 文件
 
-在這裡稱你所加載的其他 js 文件為 用戶『 自定義模塊 』
+在這裡稱你所加載的其他 `js` 文件為 用戶『 自定義模塊 』
 
-* 注意這裡的 require 若省略後綴名, 默認會由 .js ➡️ .json ➡️ .node 依序查找
+* 注意這裡的 `require` 若省略後綴名, 默認會由 `.js` ➡️ `.json` ➡️ `.node` 依序查找
 
 代碼如下：
 
@@ -359,15 +363,15 @@ a start ➡️ bbb ➡️ a end
 
 在 node 中可以使用第三方模塊 使用方式為 1.安裝 2.加載第三方模塊 3.使用
 
-安裝方式為 到你想使用的文件目錄下打開終端機 npm i 安裝第三方包
+安裝方式為 到你想使用的文件目錄下打開終端機 `npm i` 安裝第三方包
 
-加載方式為 到 js 文件中 以 require 加載第三方模塊 加載的模塊名稱即為安裝包的名稱
+加載方式為 到 `js` 文件中 以 `require` 加載第三方模塊 加載的模塊名稱即為安裝包的名稱
 
-* 在 node 中 安裝的第三方包都會在 node_modules 資料夾中
+* 在 node 中 安裝的第三方包都會在 `node_modules` 資料夾中
 
-* 此 node_modules 資料夾是 node 自動創建的 不可改名 改了就無法使用
+* 此 `node_modules` 資料夾是 node 自動創建的 不可改名 改了就無法使用
 
-這裡以 art-template 模板引擎為範例 代碼如下：
+這裡以 `art-template` 模板引擎為範例 代碼如下：
 
 ```js 
 
@@ -390,13 +394,13 @@ template.render('創建的模板',{ 雙花括號的替換內容 })
 
 ### 5-1. 用第三方模塊 art-template 試做瀏覽器開資料夾頁面（在 readdir-template 目錄）
 
-安裝並加載第三方模塊 atr-template , 使用 fs.readdir 方法獲取資料夾
+安裝並加載第三方模塊 `atr-template` , 使用 `fs.readdir` 方法獲取資料夾
 
-此方法獲取到的會直接是一個 files 數組,
+此方法獲取到的會直接是一個 `files` 數組,
 
-所以可以使用 art-template 模板中的 each 方法將資料夾直接渲染
+所以可以使用 `art-template` 模板中的 `each` 方法將資料夾直接渲染
 
-* each 方法為在模板中寫入 {{each 數組名}}{{ $value }}{{/each}}
+* `each` 方法為在模板中寫入 `{{each 數組名}}{{ $value }}{{/each}}`
 
 代碼如下：
 
@@ -422,13 +426,13 @@ fs.readfile('./index.html',function(err,data){
 
 ### 5-2. 補充 art-temple 瀏覽器中用法
 
-art-template 初期是專為服務器打造的 後來才延伸使用到瀏覽器中
+`art-template` 初期是專為服務器打造的 後來才延伸使用到瀏覽器中
 
-瀏覽器的使用方式為 script 標籤引入 ➡️ 創建模板 最後再將模板渲染到網頁內容中
+瀏覽器的使用方式為 `script` 標籤引入 ➡️ 創建模板 最後再將模板渲染到網頁內容中
 
-art-template 的方法是 template(模板的 id ,{ 替換的內容 })
+`art-template` 的方法是 `template(模板的 id ,{ 替換的內容 })`
 
-* 一定要記得把標籤類型改為非 js 並賦予一個 id 否則模板將會被當 js 解析
+* 一定要記得把標籤類型改為非 `js` 並賦予一個 `id` 否則模板將會被當 `js` 解析
 
 代碼如下：
 
@@ -457,21 +461,21 @@ thing: ['apple', 'iphone', 'monster'] })
 
 在 node 中沒有全局作用域 只有模塊作用域(即文件作用域)
 
-比如你在 a.js 文件中創建一個函數, 在 a.js 引入 b.js
+比如你在 `a.js` 文件中創建一個函數, 在 `a.js` 引入 `b.js`
 
-b.js 文件裡面無法使用 a.js 創建的函數或變量
+`b.js` 文件裡面無法使用 `a.js` 創建的函數或變量
 
 函數與變量僅有在創建該函數變量的文件中才有使用效果
 
-假設你想獲得其他 js 文件裡的作用域 則可使用 require 獲取導出的對象
+假設你想獲得其他 `js` 文件裡的作用域 則可使用 `require` 獲取導出的對象
 
-因為在 node 的模塊作用域中 每個文件裡默認都有一個 exports 對象
+因為在 node 的模塊作用域中 每個文件裡默認都有一個 `exports` 對象
 
-它即是專門用來獲取其他 js 腳本文件的變量或函數等數據對象的
+它即是專門用來獲取其他 `js` 腳本文件的變量或函數等數據對象的
 
-此 exports 對象默認為空對象 console.log() 會得到 {} 空對象
+此 `exports` 對象默認為空對象 `console.log()` 會得到 `{}` 空對象
 
-假設想在 a.js 獲取 b.js 的某函數時 即在 b.js 裡將函數導出即可
+假設想在 `a.js` 獲取 `b.js` 的某函數時 即在 `b.js` 裡將函數導出即可
 
 代碼如下：
 
@@ -493,16 +497,16 @@ console.log(bExports.foo)
 
 ## 7. 用上述所學做一個留言本案例（在 feedback 目錄）
 
-創建一個 feedback 資料夾, 加入首頁跟留言的 html 檔案, 創建一個 app.js 文件
+創建一個 `feedback` 資料夾, 加入首頁跟留言的 `html` 檔案, 創建一個 `app.js` 文件
 
-為了讓目錄結構更清晰 把服務器撰寫在 app.js 文件中, html 檔案則放入新建的 views 資料夾中
+為了讓目錄結構更清晰 把服務器撰寫在 `app.js` 文件中, `html` 檔案則放入新建的 `views` 資料夾中
 
-另外為了處理靜態資源(css js img 等)則把靜態資源統一放在新建的 public 資料夾中
+另外為了處理靜態資源(`css` `js` `img` 等)則把靜態資源統一放在新建的 `public` 資料夾中
 
 
 ### 7-1. 這裡補充 server.on() / server.listen() 的其他寫法
 
-取消創建 server 變量 直接使用 http.createServer() 然後接著 .listen()
+取消創建 `server` 變量 直接使用 `http.createServer()` 然後接著 `.listen()`
 
 代碼如下：
 
@@ -521,11 +525,11 @@ http
 
 ### 7-2. 動態資源讀取方式
 
-為了讓 html 檔案遇到 img css js 等引入式標籤可以獲取到這些動態資源
+為了讓 `html` 檔案遇到 `img` `css` `js` 等引入式標籤可以獲取到這些動態資源
 
-我們把這些資源統一放入 public 資料夾 統一讀取此資料夾中的資源
+我們把這些資源統一放入 `public` 資料夾 統一讀取此資料夾中的資源
 
-這裏用 indexOf() 方法 判斷 url 中是否含有 '/public/'
+這裏用 `indexOf()` 方法 判斷 `url` 中是否含有 `/public/`
 
 代碼如下：
 
@@ -542,15 +546,15 @@ if (url.indexOf('/public/') === 0) {
 
 ### 7-3. 使用 JSON 處理數據內容
 
-創建一個 JSON 目錄存放在 public 目錄裡面, 在 JSON 目錄下新增一個 comments.json 文件
+創建一個 `JSON` 目錄存放在 `public` 目錄裡面, 在 `JSON` 目錄下新增一個 `comments.json` 文件
 
-把留言的數據存放到此文件中, 再到 app.js 裡讀取 comments.json 文件
+把留言的數據存放到此文件中, 再到 `app.js` 裡讀取 `comments.json` 文件
 
-方法為在 app.js 中創建一個變量 comments, 利用 fs.readFile 方法獲取留言數據
+方法為在 `app.js` 中創建一個變量 `comments` 利用 `fs.readFile` 方法獲取留言數據
 
-最後使用 art-template 模板引擎將留言內容渲染到頁面上,
+最後使用 `art-template` 模板引擎將留言內容渲染到頁面上,
 
-* 這裏注意 JSON 數據要使用 JSON.parse() 方法轉成 json 對象才可在模板引擎中使用
+* 這裏注意 `JSON` 數據要使用 `JSON.parse()` 方法轉成 `json` 對象才可在模板引擎中使用
 
 代碼如下：
 
@@ -568,15 +572,15 @@ fs.readFile('./public/json/comments.json', function (err, data) {
 
 ### 7-4. 補充說明 form 表單 GET 請求
 
-在 html 中的 form 表單 配合 input:submit 使用可以提交內容
+在 `html` 中的 `form` 表單 配合 `input:submit` 使用可以提交內容
 
-使用方式為給表單添加 action 屬性設置一個地址, 然後添加 method 屬性設置提交方式
+使用方式為給表單添加 `action` 屬性設置一個地址 然後添加 `method` 屬性設置提交方式
 
-表單 method 若選擇 get 提交方式 則表單提交的內容會顯示在 url 中
+表單 `method` 若選擇 `get` 提交方式 則表單提交的內容會顯示在 `url` 中
 
-提交內容會以 action?name=value 的方式顯示在問號後方
+提交內容會以 `action?name=value` 的方式顯示在問號後方
 
-這裡的 name 是 html 中 input 的 name 屬性 value 則是該 input 中的內容
+這裡的 `name` 是 `html` 中 `input` 的 `name` 屬性 `value` 則是該 `input` 中的內容
 
 如下：
 
@@ -591,21 +595,21 @@ fs.readFile('./public/json/comments.json', function (err, data) {
 
 ### 7-5.node 核心模塊 url 的使用方式
 
-在 node 中有專門用來處理 url 地址的核心模塊 就叫 url
+在 `node` 中有專門用來處理 `url` 地址的核心模塊 就叫 `url`
 
-一樣是先加載後使用, 在此模塊中有一個 url.parse(url地址) 方法專門用於獲取 url 地址的各種屬性
+一樣是先加載後使用, 在此模塊中有一個 `url.parse(url地址)` 方法專門用於獲取 `url` 地址的各種屬性
 
-在 url.parse(url地址) 方法獲取的屬性中有一個叫 query 的屬性
+在 `url.parse(url地址)` 方法獲取的屬性中有一個叫 `query` 的屬性
 
-query 屬性是專門用來獲取表單提交數據在 ? 後面的『 name=value 』部分 此部分默認是二進制數據
+`query` 屬性是專門用來獲取表單提交數據在 `?` 後面的 `name=value` 部分 此部分默認是二進制數據
 
-假設你在 url.parse() 方法中傳入第二個參數為 true 則可將 name=value 的部分轉為字符串對象
+假設你在 `url.parse()` 方法中傳入第二個參數為 `true` 則可將 `name=value` 的部分轉為字符串對象
 
-此對象會顯示為 [Object: null prototype]{name: 'value'}
+此對象會顯示為 `[Object: null prototype]{name: 'value'}`
 
-所以當你要操作此對象時 可以用 JSON.parse(JSON.stringify(parseObj.query))
+所以當你要操作此對象時 可以用 `JSON.parse(JSON.stringify(parseObj.query))`
 
-即可將對象前面的 [Object: null prototype] 去除
+即可將對象前面的 `[Object: null prototype]` 去除
 
 代碼如下：
 
@@ -629,7 +633,7 @@ var obj = JSON.parse(JSON.stringify(parseObj.query))
 
 所以需要重定向(頁面跳轉的意思)到首頁
 
-方法為 1. 設置狀態碼為 302 (臨時重定向) 2. 設置響應頭中的 Location
+方法為 1. 設置狀態碼為 302 (臨時重定向) 2. 設置響應頭中的 `Location`
 
 代碼如下：
 
@@ -642,7 +646,7 @@ res.setHeader('Location','/')
 
 * 補充 301 302 重定向的狀態碼差別：
 
-  * 301 是永久重定向 當你每次訪問該 url 地址他就會馬上跳轉到設置的 url地址
+  * 301 是永久重定向 當你每次訪問該 `url` 地址他就會馬上跳轉到設置的 `url` 地址
 
   * 302 則是臨時重定向 每次訪問時都會重新跳轉頁面
 
@@ -654,7 +658,7 @@ res.setHeader('Location','/')
 
 ### 8-1. require 優先從緩存加載
 
-node 中的 require 會優先從緩存加載 假設你有兩個文件同時加載引用了某文件
+node 中的 `require` 會優先從緩存加載 假設你有兩個文件同時加載引用了某文件
 
 該文件只會被加載一次 不會重複加載兩次 但可以獲取兩次該文件導出的對象
 
@@ -663,40 +667,40 @@ node 中的 require 會優先從緩存加載 假設你有兩個文件同時加�
 
 ### 8-2. 第三方模塊加載規則
 
-第三方模塊的加載方式為 在加載第三方模塊的文件所處目錄找到 node_modules 資料夾
+第三方模塊的加載方式為 在加載第三方模塊的文件所處目錄找到 `node_modules` 資料夾
 
-在 node_modules 中找到該第三方模塊名稱的目錄 找到 package.json 文件
+在 `node_modules` 中找到該第三方模塊名稱的目錄 找到 `package.json` 文件
 
 在 `package.json` 文件中找到 main 屬性 加載該屬性對應的 js 文件
 
 最終你引用加載的第三方模塊其實就是該 js 文件
 
-假設沒有 `package.json` 文件 或 找不到 main 屬性
+假設沒有 `package.json` 文件 或 找不到 `main` 屬性
 
 則會直接加載該第三方模塊名稱的目錄下的 `index.js` 文件
 
-再假設以上所有條件都不成立(比如該目錄沒有 node_modules ) 則進入上一級目錄中按此規則尋找
+再假設以上所有條件都不成立(比如該目錄沒有 `node_modules` ) 則進入上一級目錄中按此規則尋找
 
 假設上一級目錄也沒有符合 就會一直往上一級找 直到根目錄也沒有才會報錯
 
-由於以上規則 我們建議把第三方模塊安裝在項目根目錄中 避免每個項目裡面都有相同的 node_modules 目錄
+由於以上規則 我們建議把第三方模塊安裝在項目根目錄中 避免每個項目裡面都有相同的 `node_modules` 目錄
 
 
 ### 8-3. 導出方式
 
-前面提到過 node 中的所有文件都是文件作用域 若要訪問其他文件中的成員須透過 exports 對象導出成員
+前面提到過 node 中的所有文件都是文件作用域 若要訪問其他文件中的成員須透過 `exports` 對象導出成員
 
 即在 node 的每個文件中其實都默認有一個對象叫 module (我們看不到但他存在)
 
 而我們可把要導出的數據都掛載到 `module.exports` 這個對象中
 
-但因為這樣代碼點來點去很多很雜 所以 node 又默默創立了一個變量 exports
+但因為這樣代碼點來點去很多很雜 所以 node 又默默創立了一個變量 `exports`
 
 即在我們看不到的地方其實還有一句 `var exports = module.exports`
 
 所以假設你只想導出某文件的一個成員 則可使用 `module.exports = 該成員`
 
-但不能直接使用 `exports = 該成員` 因為原本的 exports 已被賦值為 module.exports
+但不能直接使用 `exports = 該成員` 因為原本的 `exports` 已被賦值為 `module.exports`
 
 即每個文件中有一段隱藏的代碼如下：
 
